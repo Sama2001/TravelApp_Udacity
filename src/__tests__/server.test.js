@@ -24,6 +24,7 @@ describe('Server API Endpoints', () => {
   it('GET /geonames should return location data', async () => {
     // Mock Geonames API response
     fetch.mockResolvedValueOnce({
+      ok: true,
       json: () => Promise.resolve({ geonames: [{ lat: 48.8566, lng: 2.3522 }] }),
     });
 
@@ -35,10 +36,11 @@ describe('Server API Endpoints', () => {
   it('GET /weather should return weather data', async () => {
     // Mock Weatherbit API response
     fetch.mockResolvedValueOnce({
+      ok: true,
       json: () => Promise.resolve({ data: [{ temp: 15, weather: { description: 'Sunny' } }] }),
     });
 
-    const res = await request(app).get('/weather?lat=48.8566&lng=2.3522');
+    const res = await request(app).get('/weather?lat=48.8566&lng=2.3522&days=7');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual({ temp: 15, weather: { description: 'Sunny' } }); // Check mocked response
   });
@@ -46,11 +48,12 @@ describe('Server API Endpoints', () => {
   it('GET /image should return an image URL', async () => {
     // Mock Pixabay API response
     fetch.mockResolvedValueOnce({
-      json: () => Promise.resolve({ hits: [{ webformatURL: 'https://example.com/image.jpg' }] }),
+      ok: true,
+      json: () => Promise.resolve({ hits: [{ webformatURL: 'http://example.com/image.jpg' }] }),
     });
 
     const res = await request(app).get('/image?location=Paris');
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toEqual({ webformatURL: 'https://example.com/image.jpg' }); // Check mocked response
+    expect(res.body).toEqual({ webformatURL: 'http://example.com/image.jpg' }); // Check mocked response
   });
 });

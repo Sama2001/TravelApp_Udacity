@@ -1,7 +1,8 @@
-const server = require('./src/server/server.js');
+console.log('Script loaded!'); // Add this line at the top of index.js
 
-// Start the server
-const PORT = process.env.PORT || 3001; // Match the port in server.js
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+import { handleFormSubmit } from './app.js';  // Correct import path
+
+// Add event listener to the form
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('travel-form').addEventListener('submit', handleFormSubmit);
 });

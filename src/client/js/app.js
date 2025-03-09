@@ -1,7 +1,7 @@
 // Import functions from api.js
-import { fetchLocationData, fetchWeather, fetchImage } from './api';
+import { fetchLocationData, fetchWeather, fetchImage } from './api.js';
 
-// Add event listener to the form
+// Add event listener to the forms
 document.getElementById('travel-form').addEventListener('submit', async (e) => {
   e.preventDefault(); // Prevent the form from submitting
 
