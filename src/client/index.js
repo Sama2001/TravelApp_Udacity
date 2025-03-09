@@ -1,6 +1,6 @@
-console.log('Script loaded!'); // Add this line at the top of index.js
+console.log('Script loaded!'); // tetsing
 
-import { handleFormSubmit } from './app.js';  // Correct import path
+import { handleFormSubmit } from './app.js';  //  import path
 
 // Add event listener to the form
 document.addEventListener('DOMContentLoaded', () => {
