@@ -18,5 +18,8 @@ This is a travel app that allows users to input a destination and date, and retr
 3. Run `npm start` to start the server.
 4. Run `npm run build` to build the project.
 
+## Requirements
+- Node.js v20.15.1
+
 ## Testing
 Run `npm test` to execute Jest tests.
